@@ -30,14 +30,11 @@ export default function Home() {
       {/* About Me */}
       <section
         style={{ height: "500px" }}
-        className="w-100 flex-col items-center"
+        className="w-100 flex flex-col items-center justify-center"
       >
         <h2 className="text-center text-3xl pb-5">About Me</h2>
-        <div
-          style={{ marginLeft: "25%", marginRight: "25%" }}
-          className="border-b-2 border-solid border-secondary"
-        ></div>
-        <p className="text-justify text-lg mx-5 md:mx-28 lg:mx-36 xl:mx-36 2xl:mx-36 mt-5">
+        <div className="h-0.5 w-3/12 border-b-2 bg-secondary"></div>
+        <p className="mt-5 w-11/12 md:w-9/12 lg:w-7/12 text-justify text-lg">
           I am Software Engineer from Bandung with 3 years working experience,
           currently work at Quantus Telematika Indonesia. I am exicited to
           explore new technology, it&apos;s feels like adventure for me. I think
@@ -50,14 +47,11 @@ export default function Home() {
       {/* Working Experience */}
       <section
         style={{ height: "500px" }}
-        className="w-100 flex-col items-center"
+        className="w-100 flex flex-col items-center justify-center"
       >
         <h2 className="text-center text-3xl pb-5">Working Experience</h2>
-        <div
-          style={{ marginLeft: "25%", marginRight: "25%" }}
-          className="border-b-2 border-solid border-secondary"
-        ></div>
-        <p className="text-justify text-lg mx-5 md:mx-28 lg:mx-36 xl:mx-36 2xl:mx-36 mt-5">
+        <div className="h-0.5 w-3/12 border-b-2 bg-secondary"></div>
+        <p className="mt-5 w-11/12 md:w-9/12 lg:w-7/12 text-justify text-lg">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia
           cupiditate animi vitae! Atque recusandae deserunt expedita corrupti
           numquam eum esse laborum qui, odit ad delectus necessitatibus nobis.
@@ -68,33 +62,27 @@ export default function Home() {
       {/* Tech Stack */}
       <section
         style={{ height: "500px" }}
-        className="w-100 flex-col items-center"
+        className="w-100 flex flex-col items-center justify-center"
       >
         <h2 className="text-center text-3xl pb-5">Tech Stack</h2>
-        <div
-          style={{ marginLeft: "25%", marginRight: "25%" }}
-          className="border-b-2 border-solid border-secondary"
-        ></div>
-        <p className="text-justify text-lg mx-5 md:mx-28 lg:mx-36 xl:mx-36 2xl:mx-36 mt-5">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+        <div className="h-0.5 w-3/12 border-b-2 bg-secondary"></div>
+        <p className="mt-5 w-11/12 md:w-9/12 lg:w-7/12 text-justify text-lg">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
           velit adipisci quae? Magni aut quis nostrum quibusdam iste quidem
           dolores, natus laborum odit vero, aliquam neque ipsa nihil nisi
           pariatur.
         </p>
       </section>
 
-      {/* Contact Me */}
+      {/* Tech Stack */}
       <section
         style={{ height: "500px" }}
-        className="w-100 flex-col items-center"
+        className="w-100 flex flex-col items-center justify-center"
       >
-        <h2 className="text-center text-3xl pb-5">Contact Me</h2>
-        <div
-          style={{ marginLeft: "25%", marginRight: "25%" }}
-          className="border-b-2 border-solid border-secondary"
-        ></div>
-        <p className="text-justify text-lg mx-5 md:mx-28 lg:mx-36 xl:mx-36 2xl:mx-36 mt-5">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+        <h2 className="text-center text-3xl pb-5">Tech Stack</h2>
+        <div className="h-0.5 w-3/12 border-b-2 bg-secondary"></div>
+        <p className="mt-5 w-11/12 md:w-9/12 lg:w-7/12 text-justify text-lg">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
           velit adipisci quae? Magni aut quis nostrum quibusdam iste quidem
           dolores, natus laborum odit vero, aliquam neque ipsa nihil nisi
           pariatur.

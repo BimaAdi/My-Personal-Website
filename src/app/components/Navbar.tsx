@@ -6,7 +6,7 @@ const Navbar = () => {
   const [showDropdown, setShowDropDown] = useState<boolean>(false);
 
   return (
-    <div className="fixed top-0 left-5 right-5 bg-primary">
+    <nav className="fixed top-0 left-5 right-5 bg-primary">
       {/* Navbar */}
       <ul className="flex w-100 justify-between py-5">
         <li>
@@ -62,7 +62,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 
