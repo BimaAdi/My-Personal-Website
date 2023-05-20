@@ -12,7 +12,7 @@ const Hero = () => {
                     alt="bima"
                     width={200}
                     height={200}
-                    className="m-5 rounded-full border-2 border-solid border-secondary"
+                    className="m-5 rounded-full border-2 border-solid border-gray"
                 />
                 <div className="flex flex-col justify-center">
                     <h1 className="text-4xl text-center md:text-left">

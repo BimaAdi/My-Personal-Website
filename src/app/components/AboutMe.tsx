@@ -1,7 +1,7 @@
 const AboutMe = () => {
     return (
         <section
-            style={{ height: "500px" }}
+            style={{ height: "400px" }}
             className="w-100 flex flex-col items-center justify-center"
         >
             <h2 className="text-center text-3xl pb-5">About Me</h2>
