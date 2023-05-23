@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "BimaAdi - Project",
+  title: "BimaAdi - Blog",
   description: "Personal blog for BimaAdi (bimaadi419@gmail.com)",
 };
 
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{position: "relative"}}>
+      <body className={inter.className}>
         {children}
       </body>
     </html>
