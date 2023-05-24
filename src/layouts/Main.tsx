@@ -8,13 +8,11 @@ type props = {
 
 const Main = ({ children }: props) => {
     return (
-        <>
+        <div style={{minHeight: "100vh", position: "relative"}}>
             <Navbar />
-            <main className="text-white mx-5">
-                {children}
-            </main>
+            {children}
             <Footer />
-        </>
+        </div>
     )
 }
 

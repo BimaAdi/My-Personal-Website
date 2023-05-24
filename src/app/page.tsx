@@ -8,11 +8,13 @@ import Main from "@/layouts/Main";
 export default function Home() {
   return (
     <Main>
-      <Hero />
-      <AboutMe />
-      <WorkingExperience />
-      <TechStack />
-      <ContactMe />
+      <main className="text-white">
+        <Hero />
+        <AboutMe />
+        <WorkingExperience />
+        <TechStack />
+        <ContactMe />
+      </main>
     </Main>
   )
 }

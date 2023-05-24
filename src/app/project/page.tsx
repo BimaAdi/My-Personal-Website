@@ -1,10 +1,10 @@
 import OnProgress from "@/components/OnProgress"
-import Full from "@/layouts/Full"
+import Main from "@/layouts/Main"
 
 export default function Blog() {
     return (
-        <Full>
+        <Main>
             <OnProgress />
-        </Full>
+        </Main>
     )
 }

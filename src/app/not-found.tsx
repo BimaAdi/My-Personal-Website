@@ -1,10 +1,10 @@
 import NotFound from "@/components/NotFound"
-import Full from "@/layouts/Full"
+import Main from "@/layouts/Main"
 
 export default function Custom404() {
     return (
-        <Full>
+        <Main>
             <NotFound />
-        </Full>
+        </Main>
     )
 }
