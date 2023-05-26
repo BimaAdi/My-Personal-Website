@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Main from "@/layouts/Main"
 import BlogItem from "@/components/BlogItem";
 
