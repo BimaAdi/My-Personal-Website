@@ -32,7 +32,7 @@ export async function GET(
     id: blog.id,
     title: blog.title,
     link: blog.link,
-    tag: blog.tags.map((y) => {
+    tags: blog.tags.map((y) => {
       let detail_tag = getDetailTag({ tags, id: y });
       if (detail_tag === null) {
         return null;

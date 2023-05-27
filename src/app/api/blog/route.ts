@@ -56,7 +56,7 @@ export async function GET(request: Request) {
       id: x.id,
       title: x.title,
       link: x.link,
-      tag: x.tags.map((y) => {
+      tags: x.tags.map((y) => {
         let detail_tag = getDetailTag({ tags, id: y });
         if (detail_tag === null) {
           return null;

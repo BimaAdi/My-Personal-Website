@@ -4,7 +4,7 @@ export const BlogDetailSchema = z.object({
   id: z.string(),
   title: z.string(),
   link: z.string(),
-  tag: z.array(
+  tags: z.array(
     z
       .object({
         id: z.string(),
@@ -35,7 +35,7 @@ export const PaginateBlogSchema = z.object({
       id: z.string(),
       title: z.string(),
       link: z.string(),
-      tag: z.array(
+      tags: z.array(
         z.object({
           id: z.string(),
           name: z.string(),
