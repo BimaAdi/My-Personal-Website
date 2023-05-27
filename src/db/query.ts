@@ -4,6 +4,7 @@ import {
   BlogJsonSchema,
   BlogJsonType,
   BlogStringType,
+  BlogDetailJsonType,
   TagJsonSchema,
   TagJsonType,
   TagDetailType,
@@ -55,6 +56,20 @@ export const paginateBlog = ({
     num_data: num_blog,
     num_page: Math.ceil(num_blog / page_size),
   };
+};
+
+export const getDetailBlog = ({
+  blogs,
+  id,
+}: {
+  blogs: BlogJsonType;
+  id: string;
+}): BlogDetailJsonType | null => {
+  let selected_blog = blogs.filter((x) => x.id === id);
+  if (selected_blog.length == 0) {
+    return null;
+  }
+  return selected_blog[0];
 };
 
 export const getDetailTag = ({

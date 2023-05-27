@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+export const NotFoundSchema = z.object({
+  message: z.any(),
+});
+
+export type NotFoundType = z.infer<typeof NotFoundSchema>;
+
 export const UnprocessableEntitySchema = z.object({
   message: z.any(),
 });
