@@ -1,8 +1,13 @@
-import { describe, expect, test } from "vitest";
+import { afterAll, beforeAll, describe, expect, test } from "vitest";
 import { createMocks } from "node-mocks-http";
 import { GET as getDetailBlogApi } from "@/app/api/blog/[id]/route";
+import { DEFAULT_JSON_PATH, WORKDIR } from "@/constants";
 
 describe("/api/blog/[id]", () => {
+  beforeAll(async () => {
+    global.JSON_PATH = `${WORKDIR}/__tests__/data/`;
+  });
+
   test("blog found", async () => {
     // Given
     const id = "fbcb36bb-a273-49d6-8456-65f60988bd21";
@@ -19,8 +24,8 @@ describe("/api/blog/[id]", () => {
     let jsonResult = await result.json();
     expect(jsonResult).toMatchObject({
       id,
-      title: "How to structure your Rust Project",
-      link: "How-to-structure-your-Rust-Project",
+      title: "Title A",
+      link: "title-A",
       tags: [
         {
           id: "cc4db5e1-c284-4101-9738-96140409b73c",
@@ -49,5 +54,9 @@ describe("/api/blog/[id]", () => {
 
     // Expect
     expect(result.status).equal(404);
+  });
+
+  afterAll(async () => {
+    global.JSON_PATH = DEFAULT_JSON_PATH;
   });
 });

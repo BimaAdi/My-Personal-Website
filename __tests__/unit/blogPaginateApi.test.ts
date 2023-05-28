@@ -1,8 +1,13 @@
-import { describe, expect, test } from "vitest";
+import { afterAll, beforeAll, describe, expect, test } from "vitest";
 import { createMocks } from "node-mocks-http";
 import { GET as getPaginateBlogApi } from "@/app/api/blog/route";
+import { WORKDIR, DEFAULT_JSON_PATH } from "@/constants";
 
 describe("/api/blog", () => {
+  beforeAll(async () => {
+    global.JSON_PATH = `${WORKDIR}/__tests__/data/`;
+  });
+
   test("default blog", async () => {
     // Given
     const { req } = createMocks({
@@ -24,8 +29,8 @@ describe("/api/blog", () => {
       results: [
         {
           id: "fbcb36bb-a273-49d6-8456-65f60988bd21",
-          title: "How to structure your Rust Project",
-          link: "How-to-structure-your-Rust-Project",
+          title: "Title A",
+          link: "title-A",
           tags: [
             {
               id: "cc4db5e1-c284-4101-9738-96140409b73c",
@@ -40,8 +45,8 @@ describe("/api/blog", () => {
         },
         {
           id: "f0bc35be-dd01-468b-9adb-d3d80bd0c73d",
-          title: "Scaling Websocket in Go",
-          link: "Scaling-Websocket-in-Go",
+          title: "Title B",
+          link: "title-B",
           tags: [
             {
               id: "3c4bb783-b19e-43c0-87de-61731b740ea4",
@@ -60,8 +65,8 @@ describe("/api/blog", () => {
         },
         {
           id: "0dfbff12-3fab-4209-97d3-be7ef3b598fa",
-          title: "Programing in Canvas using reactjs",
-          link: "Programing-in-Canvas-using-reactjs",
+          title: "Title C",
+          link: "title-C",
           tags: [
             {
               id: "109baf4a-b3ee-433e-84bc-48b0b9926fba",
@@ -103,8 +108,8 @@ describe("/api/blog", () => {
       results: [
         {
           id: "0dfbff12-3fab-4209-97d3-be7ef3b598fa",
-          title: "Programing in Canvas using reactjs",
-          link: "Programing-in-Canvas-using-reactjs",
+          title: "Title C",
+          link: "title-C",
           tags: [
             {
               id: "109baf4a-b3ee-433e-84bc-48b0b9926fba",
@@ -119,5 +124,9 @@ describe("/api/blog", () => {
         },
       ],
     });
+  });
+
+  afterAll(async () => {
+    global.JSON_PATH = DEFAULT_JSON_PATH;
   });
 });

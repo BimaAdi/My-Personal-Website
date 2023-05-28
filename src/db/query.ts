@@ -1,5 +1,4 @@
 import fs from "fs";
-import { WORKDIR } from "@/constants";
 import {
   BlogJsonSchema,
   BlogJsonType,
@@ -11,7 +10,7 @@ import {
 } from "./types";
 
 export const readBlog = (): BlogJsonType => {
-  let data = fs.readFileSync(`${WORKDIR}/src/db/json/blogs.json`);
+  let data = fs.readFileSync(`${global.JSON_PATH}blogs.json`);
   let json = JSON.parse(data.toString()) as BlogStringType;
   json = json.map((x) => {
     return { ...x, created_at: new Date(x.created_at) };
@@ -20,7 +19,7 @@ export const readBlog = (): BlogJsonType => {
 };
 
 export const readTag = (): TagJsonType => {
-  let data = fs.readFileSync(`${WORKDIR}/src/db/json/tags.json`);
+  let data = fs.readFileSync(`${global.JSON_PATH}tags.json`);
   let json = JSON.parse(data.toString());
   return TagJsonSchema.parse(json);
 };
