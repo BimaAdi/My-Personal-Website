@@ -1,9 +1,9 @@
-import Hero from "@/components/Hero";
-import AboutMe from "@/components/AboutMe";
-import WorkingExperience from "@/components/WorkingExperience";
-import TechStack from "@/components/TechStack";
-import ContactMe from "@/components/ContactMe";
-import Main from "@/layouts/Main";
+import Hero from "@/client/components/Hero";
+import AboutMe from "@/client/components/AboutMe";
+import WorkingExperience from "@/client/components/WorkingExperience";
+import TechStack from "@/client/components/TechStack";
+import ContactMe from "@/client/components/ContactMe";
+import Main from "@/client/layouts/Main";
 
 export default function Home() {
   return (

@@ -1,6 +1,6 @@
-import Main from "@/layouts/Main"
-import BlogSearchInput from "@/components/BlogSearchInput";
-import BlogItem from "@/components/BlogItem";
+import Main from "@/client/layouts/Main"
+import BlogSearchInput from "@/client/components/BlogSearchInput";
+import BlogItem from "@/client/components/BlogItem";
 
 export default function Blog() {
     return (

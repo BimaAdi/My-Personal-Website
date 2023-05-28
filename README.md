@@ -5,8 +5,8 @@ This is My personal website
 - Node ver 18.14.0
 - npm ver 9.6.6
 
-## Installation
-1. install depedency
+## Installation (for development)
+1. install depedencies
 ```bash
 npm install
 ```
@@ -21,6 +21,50 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Project Structure
+- src/
+    - app/ (next js app folder see [nextjs routing doc](https://nextjs.org/docs/app/building-your-application/routing))
+    - client/ (all file related to frontend (UI))
+        - components/ (react component)
+        - layouts/ (group of react component)
+    - server/ (all file related to backend (API))
+        - db/ (json data)
+        - repositories/ (function to access db/)
+        - types/ (types for backend)
+    - shared/ (shared function, variable, constant between client/ and server/)
+        - schemas/ (zod api schemas)
+        - contants.ts (shared constant)
+- \_\_tests\_\_/ (unit test (using vitest))
+- e2e/ (end to end test (using playwright))
+
+## Testing
+There are two type of testing unit (using vitest) and e2e (using playwright)
+
+### Unit Testing
+1. follow installation step first
+2. run test
+```bash
+npm run test
+```
+
+### E2E Testing
+1. follow installation step first
+2. Add Playwright extra depedency
+```bash
+npx playwright install
+sudo npx playwright install-deps
+```
+3. run server
+```bash
+npm run dev
+# or
+npm run build
+npm run start
+```
+4. run test
+```bash
+npm run test:e2e
+```
 
 ## Deployment
 1. Build project
@@ -32,9 +76,3 @@ npm run build
 ```bash
 npm run start
 ```
-
-## Project Structure
-- src
-    - app (next js app folder see [nextjs routing doc](https://nextjs.org/docs/app/building-your-application/routing))
-    - components (to store react component)
-    - layouts (to store group of react component)

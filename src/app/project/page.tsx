@@ -1,5 +1,5 @@
-import OnProgress from "@/components/OnProgress"
-import Main from "@/layouts/Main"
+import OnProgress from "@/client/components/OnProgress"
+import Main from "@/client/layouts/Main"
 
 export default function Blog() {
     return (
