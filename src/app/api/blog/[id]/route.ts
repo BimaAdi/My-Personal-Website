@@ -1,14 +1,10 @@
 import { NextResponse } from "next/server";
-import {
-  getDetailBlog,
-  getDetailTag,
-  paginateBlog,
-  readBlog,
-  readTag,
-} from "@/db/query";
-import { NotFoundSchema } from "@/schemas/common";
-import { BlogDetailSchema } from "@/schemas/blog";
+import { readBlog, readTag } from "@/server/db/query";
+import { getDetailTag } from "@/server/repositories/tag";
+import { NotFoundSchema } from "@/shared/schemas/common";
+import { BlogDetailSchema } from "@/shared/schemas/blog";
 import dayjs from "dayjs";
+import { getDetailBlog } from "@/server/repositories/blog";
 
 export async function GET(
   request: Request,

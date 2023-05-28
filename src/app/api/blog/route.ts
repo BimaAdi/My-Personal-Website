@@ -1,16 +1,21 @@
 import { NextResponse } from "next/server";
 import dayjs from "dayjs";
-import { getDetailTag, paginateBlog, readBlog, readTag } from "@/db/query";
-import { PaginateBlogSchema, QueryParamsBlogSchema } from "@/schemas/blog";
+import { readBlog, readTag } from "@/server/db/query";
+import { getDetailTag } from "@/server/repositories/tag";
+import {
+  PaginateBlogSchema,
+  QueryParamsBlogSchema,
+} from "@/shared/schemas/blog";
 import {
   InternalServerErrorSchema,
   UnprocessableEntitySchema,
-} from "@/schemas/common";
+} from "@/shared/schemas/common";
+import { paginateBlog } from "@/server/repositories/blog";
 
 export async function GET(request: Request) {
   // parse and validate query param
   const { searchParams } = new URL(request.url);
-  
+
   let page = searchParams.get("page");
   let selected_page = 1;
   if (page !== null) {
