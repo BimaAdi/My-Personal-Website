@@ -3,5 +3,5 @@ declare global {
 }
 
 export const WORKDIR = process.cwd();
-export const DEFAULT_JSON_PATH = `${process.cwd()}/src/db/json/`;
-global.JSON_PATH = `${WORKDIR}/src/db/json/`;
+export const DEFAULT_JSON_PATH = `${process.cwd()}/src/server/db/json/`;
+global.JSON_PATH = `${WORKDIR}/src/server/db/json/`;

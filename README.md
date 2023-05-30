@@ -25,8 +25,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 - src/
     - app/ (next js app folder see [nextjs routing doc](https://nextjs.org/docs/app/building-your-application/routing))
     - client/ (all file related to frontend (UI))
+        - api/ (fetch rest api functions)
         - components/ (react component)
         - layouts/ (group of react component)
+        - providers/ (root level provider ex: Tanstack React Query Providers, React-Redux Providers, etc)
     - server/ (all file related to backend (API))
         - db/ (json data)
         - repositories/ (function to access db/)

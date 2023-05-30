@@ -1,16 +1,18 @@
 import { z } from "zod";
 
+// /api/blog/[id]
 export const BlogDetailSchema = z.object({
   id: z.string(),
   title: z.string(),
   link: z.string(),
   tags: z.array(
-    z
-      .object({
+    z.union([
+      z.object({
         id: z.string(),
         name: z.string(),
-      })
-      .optional()
+      }),
+      z.null()
+    ])
   ),
   created_at: z.string(),
   body: z.string(),
@@ -18,6 +20,7 @@ export const BlogDetailSchema = z.object({
 
 export type BlogDetailType = z.infer<typeof BlogDetailSchema>;
 
+// /api/blog?page=1&page_size=10
 export const QueryParamsBlogSchema = z.object({
   page: z.number().positive(),
   page_size: z.number().positive().lte(30),
@@ -36,10 +39,13 @@ export const PaginateBlogSchema = z.object({
       title: z.string(),
       link: z.string(),
       tags: z.array(
-        z.object({
-          id: z.string(),
-          name: z.string(),
-        })
+        z.union([
+          z.object({
+            id: z.string(),
+            name: z.string(),
+          }),
+          z.null()
+        ])
       ),
       created_at: z.string(),
     })
