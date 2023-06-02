@@ -17,8 +17,10 @@ export async function GET(request: Request) {
     selected_page_size = parseInt(page_size);
   }
 
+  let search = searchParams.get("search")
+
   const result = await getPaginateBlogService({
-     page: selected_page, page_size: selected_page_size 
+    page: selected_page, page_size: selected_page_size, search
   });
   return NextResponse.json(result.json, { status: result.status })
 }

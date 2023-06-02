@@ -4,15 +4,21 @@ export const paginateBlog = ({
   blogs,
   page = 1,
   page_size = 10,
+  search = null
 }: {
   blogs: BlogJsonType;
   page?: number | undefined;
   page_size?: number | undefined;
+  search?: string | null | undefined
 }): {
   data: BlogJsonType;
   num_data: number;
   num_page: number;
 } => {
+  if (search !== null) {
+    blogs = blogs.filter(x => x.title.includes(search))
+  }
+
   let num_blog = blogs.length;
   let start = (page - 1) * page_size;
   if (start > num_blog) {

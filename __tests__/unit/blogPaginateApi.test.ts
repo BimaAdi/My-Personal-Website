@@ -126,6 +126,45 @@ describe("/api/blog", () => {
     });
   });
 
+  test("search blog", async () => {
+    // Given
+    const { req } = createMocks({
+      url: "http://localhost:3000/api/blog?search=A",
+      method: "GET",
+    });
+
+    // When
+    let result = await getPaginateBlogApi(req);
+
+    // Expect
+    expect(result.status).equal(200);
+    let jsonResult = await result.json();
+    expect(jsonResult).toMatchObject({
+      counts: 1,
+      page_count: 1,
+      page: 1,
+      page_size: 10,
+      results: [
+        {
+          id: "fbcb36bb-a273-49d6-8456-65f60988bd21",
+          title: "Title A",
+          link: "title-A",
+          tags: [
+            {
+              id: "cc4db5e1-c284-4101-9738-96140409b73c",
+              name: "Rust",
+            },
+            {
+              id: "ad84c55d-11ee-4187-90cf-babe04c97ff9",
+              name: "Cargo",
+            },
+          ],
+          created_at: "2023-03-27",
+        },
+      ],
+    });
+  });
+
   afterAll(async () => {
     global.JSON_PATH = DEFAULT_JSON_PATH;
   });

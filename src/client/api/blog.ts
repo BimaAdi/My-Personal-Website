@@ -15,15 +15,21 @@ import {
 } from "@/shared/schemas/common";
 import { InternalServerError, NotFound, Ok, UnprocessableEntity } from "./status";
 
-export const GetPaginateBlog = async ({ page, page_size }: QueryParamsBlogType): Promise<
+export const GetPaginateBlog = async ({ page, page_size, search }: QueryParamsBlogType): Promise<
     Ok<PaginateBlogType> |
     UnprocessableEntity<UnprocessableEntityType> |
     InternalServerError<InternalServerErrorType>
 > => {
-    let response = await fetch(`/api/blog?page=${page}&page_size=${page_size}`, {
+    let url = `/api/blog?page=${page}&page_size=${page_size}`
+    if (search !== null) {
+        url = `${url}&search=${search}`
+    }
+
+    let response = await fetch(url, {
         method: 'GET',
     })
     let json = await response.json()
+    
     switch (response.status) {
         case 200:
             json = PaginateBlogSchema.parse(json)

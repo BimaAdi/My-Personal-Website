@@ -10,10 +10,11 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat)
 
 const Blog = () => {
-    const [paginateBlogParams, setPaginateBlogParams] = useState<{ 
-        page: number, 
-        page_size: number 
-    }>({ page: 1, page_size: 10 });
+    const [paginateBlogParams, setPaginateBlogParams] = useState<{
+        page: number,
+        page_size: number,
+        search: string | null
+    }>({ page: 1, page_size: 10, search: null });
 
     // Query
     const paginateBlogQuery = useQuery({
@@ -22,12 +23,22 @@ const Blog = () => {
     })
 
     // Action
-    const searchClick = () => {
-        paginateBlogQuery.refetch()
+    const searchClick = (search: string | null) => {
+        if (search !== null && search.trim() !== '') {
+            setPaginateBlogParams({
+                ...paginateBlogParams,
+                search: search
+            })
+        } else {
+            setPaginateBlogParams({
+                ...paginateBlogParams,
+                search: null
+            })
+        }
     }
 
     return (
-        <main className="w-full md:max-w-3xl md:mx-auto text-white">
+        <div id="blogList" className="text-white">
             <BlogSearchInput searchFn={searchClick} />
             {paginateBlogQuery.status === "loading" ? <div className="m-4">Loading...</div> : <></>}
             {paginateBlogQuery.data?.status === 200 ? paginateBlogQuery.data.json?.results.map((x) => {
@@ -40,7 +51,7 @@ const Blog = () => {
                 />
             }) : <></>}
             {paginateBlogQuery.data?.status === 500 ? <div>Something Wrong with seerver</div> : <></>}
-        </main>
+        </div>
     )
 }
 

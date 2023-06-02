@@ -9,13 +9,14 @@ import { InternalServerError, NotFound, Ok } from "../types/status";
 import { UnprocessableEntity } from "../types/status";
 
 export const getPaginateBlogService = async (
-    { page, page_size }: { page: number, page_size: number }
+    { page, page_size, search }: { page: number, page_size: number, search: string | null }
 ): Promise<Ok<PaginateBlogType> | UnprocessableEntity<UnprocessableEntityType> | InternalServerError<InternalServerErrorType>> => {
     try {
         // parse and validate query param
         let validateQueryParam = QueryParamsBlogSchema.safeParse({
             page,
             page_size,
+            search,
         });
         if (validateQueryParam.success === false) {
             return {
@@ -33,6 +34,7 @@ export const getPaginateBlogService = async (
             blogs,
             page,
             page_size,
+            search,
         });
 
         // format json response

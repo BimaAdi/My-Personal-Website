@@ -44,6 +44,7 @@ export type BlogDetailLinkType = z.infer<typeof BlogDetailLinkSchema>;
 export const QueryParamsBlogSchema = z.object({
   page: z.number().positive(),
   page_size: z.number().positive().lte(30),
+  search: z.string().nullable(),
 });
 
 export type QueryParamsBlogType = z.infer<typeof QueryParamsBlogSchema>;
