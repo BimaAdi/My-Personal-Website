@@ -32,6 +32,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
     - server/ (all file related to backend (API))
         - db/ (json data)
         - repositories/ (function to access db/)
+        - services/ (business logic)
         - types/ (types for backend)
     - shared/ (shared function, variable, constant between client/ and server/)
         - schemas/ (zod api schemas)

@@ -5,7 +5,7 @@ import { WORKDIR, DEFAULT_JSON_PATH } from "@/shared/constants";
 
 describe("/api/blog", () => {
   beforeAll(async () => {
-    global.JSON_PATH = `${WORKDIR}/__tests__/data/`;
+    global.JSON_PATH = `${WORKDIR}/__tests__/data/json/`;
   });
 
   test("default blog", async () => {

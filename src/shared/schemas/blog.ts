@@ -20,6 +20,26 @@ export const BlogDetailSchema = z.object({
 
 export type BlogDetailType = z.infer<typeof BlogDetailSchema>;
 
+// /api/blog/link/[id]
+export const BlogDetailLinkSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  link: z.string(),
+  tags: z.array(
+    z.union([
+      z.object({
+        id: z.string(),
+        name: z.string(),
+      }),
+      z.null()
+    ])
+  ),
+  created_at: z.string(),
+  body: z.string(),
+});
+
+export type BlogDetailLinkType = z.infer<typeof BlogDetailLinkSchema>;
+
 // /api/blog?page=1&page_size=10
 export const QueryParamsBlogSchema = z.object({
   page: z.number().positive(),

@@ -2,7 +2,7 @@ import fs from "fs";
 import { BlogStringType } from "./types";
 import { BlogJsonSchema, BlogJsonType } from "@/server/types/blog";
 import { TagJsonType, TagJsonSchema } from "@/server/types/tag";
-import { DEFAULT_JSON_PATH } from "@/shared/constants";
+import { DEFAULT_JSON_PATH, DEFAULT_MD_PATH } from "@/shared/constants";
 
 export const readBlog = (): BlogJsonType => {
   let data = fs.readFileSync(
@@ -22,3 +22,8 @@ export const readTag = (): TagJsonType => {
   let json = JSON.parse(data.toString());
   return TagJsonSchema.parse(json);
 };
+
+export const readBlogMd = (link: string): string => {
+  let data = fs.readFileSync(`${global.MD_PATH || DEFAULT_MD_PATH}/${link}.md`);
+  return data.toString();
+}

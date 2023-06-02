@@ -46,3 +46,17 @@ export const getDetailBlog = ({
   }
   return selected_blog[0];
 };
+
+export const getDetailBlogByLink = ({
+  blogs,
+  link,
+}: {
+  blogs: BlogJsonType;
+  link: string;
+}): BlogDetailJsonType | null => {
+  let selected_blog = blogs.filter((x) => x.link === link);
+  if (selected_blog.length == 0) {
+    return null;
+  }
+  return selected_blog[0];
+};

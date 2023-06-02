@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { readBlog, readTag } from "@/server/db/query";
+import { readBlog, readTag, readBlogMd } from "@/server/db/query";
 import { getDetailTag } from "@/server/repositories/tag";
 import { NotFoundType, InternalServerErrorType } from "@/shared/schemas/common";
 import { BlogDetailType } from "@/shared/schemas/blog";
@@ -42,7 +42,7 @@ export async function GET(
         };
       }),
       created_at: dayjs(blog.created_at).format("YYYY-MM-DD"),
-      body: "# Title",
+      body: readBlogMd(blog.link),
     } satisfies BlogDetailType;
 
     return NextResponse.json(detail_blog, { status: 200 });

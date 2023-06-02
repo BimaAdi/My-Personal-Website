@@ -34,7 +34,7 @@ const Blog = () => {
                 return <BlogItem
                     key={x.id}
                     title={x.title}
-                    link={x.link}
+                    link={`/blog/${x.link}`}
                     tags={x.tags.map(y => y?.name || "")}
                     created_at={dayjs(x.created_at, "YYYY-MM-DD").toDate()}
                 />
