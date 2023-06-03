@@ -3,7 +3,7 @@ import Main from "@/client/layouts/Main"
 
 export default function Blog() {
     return (
-        <Main>
+        <Main addNavbarBuffer={false} addFooterBuffer={false}>
             <OnProgress />
         </Main>
     )
