@@ -26,5 +26,13 @@
     {
         "id": "9d72d711-c3d4-4dca-8a82-b012bc5021b4",
         "name": "React"
+    },
+    {
+        "id": "70e0e0fd-c246-49fc-a277-4147c462e48a",
+        "name": "Next JS"
+    },
+    {
+        "id": "173bd653-31eb-4c00-b7c8-67cc03c677da",
+        "name": "Typescript"
     }
 ]
