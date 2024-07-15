@@ -40,7 +40,7 @@ const Blog = () => {
     return (
         <div id="blogList" className="text-white">
             <BlogSearchInput searchFn={searchClick} />
-            {paginateBlogQuery.status === "loading" ? <div className="m-4">Loading...</div> : <></>}
+            {paginateBlogQuery.status === "pending" ? <div className="m-4">Loading...</div> : <></>}
             {paginateBlogQuery.data?.status === 200 ? paginateBlogQuery.data.json?.results.map((x) => {
                 return <BlogItem
                     key={x.id}
