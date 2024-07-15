@@ -6,15 +6,15 @@ import ContactMe from "@/client/components/ContactMe";
 import Main from "@/client/layouts/Main";
 
 export default function Home() {
-  return (
-    <Main>
-      <main className="text-white">
-        <Hero />
-        <AboutMe />
-        <WorkingExperience />
-        <TechStack />
-        <ContactMe />
-      </main>
-    </Main>
-  )
+	return (
+		<Main>
+			<main className="text-white">
+				<Hero />
+				<AboutMe />
+				<WorkingExperience />
+				<TechStack />
+				<ContactMe />
+			</main>
+		</Main>
+	);
 }

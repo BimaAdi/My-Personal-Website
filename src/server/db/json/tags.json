@@ -1,38 +1,38 @@
 [
-    {
-        "id": "cc4db5e1-c284-4101-9738-96140409b73c",
-        "name": "Rust"
-    },
-    {
-        "id": "ad84c55d-11ee-4187-90cf-babe04c97ff9",
-        "name": "Cargo"
-    },
-    {
-        "id": "3c4bb783-b19e-43c0-87de-61731b740ea4",
-        "name": "Websocket"
-    },
-    {
-        "id": "e91852bb-f501-4c4c-8f84-81a96b529514",
-        "name": "Go"
-    },
-    {
-        "id": "c4091d14-a5c7-4abf-aa37-2580c45e3cde",
-        "name": "Redis"
-    },
-    {
-        "id": "109baf4a-b3ee-433e-84bc-48b0b9926fba",
-        "name": "Javascript"
-    },
-    {
-        "id": "9d72d711-c3d4-4dca-8a82-b012bc5021b4",
-        "name": "React"
-    },
-    {
-        "id": "70e0e0fd-c246-49fc-a277-4147c462e48a",
-        "name": "Next JS"
-    },
-    {
-        "id": "173bd653-31eb-4c00-b7c8-67cc03c677da",
-        "name": "Typescript"
-    }
+	{
+		"id": "cc4db5e1-c284-4101-9738-96140409b73c",
+		"name": "Rust"
+	},
+	{
+		"id": "ad84c55d-11ee-4187-90cf-babe04c97ff9",
+		"name": "Cargo"
+	},
+	{
+		"id": "3c4bb783-b19e-43c0-87de-61731b740ea4",
+		"name": "Websocket"
+	},
+	{
+		"id": "e91852bb-f501-4c4c-8f84-81a96b529514",
+		"name": "Go"
+	},
+	{
+		"id": "c4091d14-a5c7-4abf-aa37-2580c45e3cde",
+		"name": "Redis"
+	},
+	{
+		"id": "109baf4a-b3ee-433e-84bc-48b0b9926fba",
+		"name": "Javascript"
+	},
+	{
+		"id": "9d72d711-c3d4-4dca-8a82-b012bc5021b4",
+		"name": "React"
+	},
+	{
+		"id": "70e0e0fd-c246-49fc-a277-4147c462e48a",
+		"name": "Next JS"
+	},
+	{
+		"id": "173bd653-31eb-4c00-b7c8-67cc03c677da",
+		"name": "Typescript"
+	}
 ]

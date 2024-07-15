@@ -1,6 +1,6 @@
 declare global {
-  var JSON_PATH: string | undefined;
-  var MD_PATH: string | undefined
+	var JSON_PATH: string | undefined;
+	var MD_PATH: string | undefined;
 }
 
 export const WORKDIR = process.cwd();
