@@ -35,3 +35,12 @@
 .blog b {
     color: white;
 }
+
+.blog blockquote {
+    color: white;
+}
+
+.blog th {
+    color: white;
+    font-weight: 600;
+}
