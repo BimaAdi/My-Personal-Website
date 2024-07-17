@@ -2,8 +2,8 @@
 This is My personal website
 
 ## Requirements
-- Node ver 18.14.0
-- npm ver 9.6.6
+- Node ver 20.10
+- npm ver 10.2
 
 ## Installation (for development)
 1. install depedencies
