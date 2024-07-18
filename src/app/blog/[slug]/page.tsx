@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
 	return (
 		<Main>
-			<div className="py-8 sm:py-20 max-w-3xl mx-auto px-4">
+			<div className="py-4 sm:py-6 max-w-3xl mx-auto px-4">
 				<article className="prose prose-sm md:prose-base lg:prose-lg mx-auto text-white">
 					<h1 className="text-white">{props.frontMatter.title}</h1>
 					<div className={styles.blog}>
