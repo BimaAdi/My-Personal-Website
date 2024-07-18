@@ -1,22 +1,46 @@
-.blogDetail  {
+.blog  {
+    color: white;
+    text-align: justify;
+}
+
+.blog h1 {
     color: white;
 }
 
-.blogDetail h1 {
-    margin-bottom: 0.75rem;
-    font-size: 1.5rem; /* 24px */
-    line-height: 2rem; /* 32px */
+.blog h2 {
+    color: white;
 }
 
-.blogDetail h2 {
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.75rem; /* 28px */
+.blog h3 {
+    color: white;
 }
 
-.blogDetail p {
-    margin-bottom: 0.75rem;
-    text-align: justify;
-    font-size: 1.125rem/* 18px */;
-    line-height: 1.75rem/* 28px */;
+.blog h4 {
+    color: white;
+}
+
+.blog h5 {
+    color: white;
+}
+
+.blog a {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+.blog strong {
+    color: white;
+}
+
+.blog b {
+    color: white;
+}
+
+.blog blockquote {
+    color: white;
+}
+
+.blog th {
+    color: white;
+    font-weight: 600;
 }

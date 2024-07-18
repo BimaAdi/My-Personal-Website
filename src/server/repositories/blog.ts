@@ -1,24 +1,38 @@
-import { BlogJsonType, BlogDetailJsonType } from "@/server/types/blog";
+import fs from "fs";
+import {
+	BlogJsonType,
+	BlogDetailJsonType,
+	BlogJsonSchema,
+} from "@/server/types/blog";
+import { DEFAULT_JSON_PATH } from "@/shared/constants";
+import { BlogStringType } from "../db/types";
 
 export const paginateBlog = ({
-	blogs,
 	page = 1,
 	page_size = 10,
 	search = null,
 }: {
-	blogs: BlogJsonType;
 	page?: number | undefined;
 	page_size?: number | undefined;
 	search?: string | null | undefined;
-}): {
-	data: BlogJsonType;
-	num_data: number;
-	num_page: number;
-} => {
+}) => {
+	// Conver JSON to array of object
+	let data = fs.readFileSync(
+		`${global.JSON_PATH || DEFAULT_JSON_PATH}blogs.json`,
+	);
+	let json = JSON.parse(data.toString()) as BlogStringType;
+	json = json.map((x) => {
+		return { ...x, created_at: new Date(x.created_at) };
+	});
+	let blogs = BlogJsonSchema.parse(json);
+
 	if (search !== null) {
-		blogs = blogs.filter((x) => x.title.includes(search));
+		blogs = blogs.filter((x) =>
+			x.title.toLowerCase().includes(search.toLowerCase()),
+		);
 	}
 
+	// Paginate and search blog
 	let num_blog = blogs.length;
 	let start = (page - 1) * page_size;
 	if (start > num_blog) {

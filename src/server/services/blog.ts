@@ -46,11 +46,7 @@ export const getPaginateBlogService = async ({
 			} satisfies UnprocessableEntity<UnprocessableEntityType>;
 		}
 
-		// read from "db" ;)
-		let blogs = readBlog();
-		let tags = readTag();
 		let { data, num_data, num_page } = paginateBlog({
-			blogs,
 			page,
 			page_size,
 			search,
@@ -67,16 +63,7 @@ export const getPaginateBlogService = async ({
 					id: x.id,
 					title: x.title,
 					link: x.link,
-					tags: x.tags.map((y) => {
-						let detail_tag = getDetailTag({ tags, id: y });
-						if (detail_tag === null) {
-							return null;
-						}
-						return {
-							id: detail_tag.id,
-							name: detail_tag.name,
-						};
-					}),
+					tags: x.tags,
 					created_at: dayjs(x.created_at).format("YYYY-MM-DD"),
 				};
 			}),

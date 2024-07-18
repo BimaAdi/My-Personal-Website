@@ -12,15 +12,20 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
+    "@tailwindcss/typography": "^0.5.13",
     "@tanstack/react-query": "^5.51.1",
     "@types/marked": "^5.0.0",
     "@types/node": "20.1.4",
     "dayjs": "^1.11.11",
+    "gray-matter": "^4.0.3",
     "marked": "^5.0.4",
     "next": "^14.2.5",
+    "next-mdx-remote": "^5.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^4.8.0",
+    "react-syntax-highlighter": "^15.5.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -28,6 +33,7 @@
     "@playwright/test": "^1.34.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",

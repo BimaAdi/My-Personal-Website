@@ -59,15 +59,7 @@ export const PaginateBlogSchema = z.object({
 			id: z.string(),
 			title: z.string(),
 			link: z.string(),
-			tags: z.array(
-				z.union([
-					z.object({
-						id: z.string(),
-						name: z.string(),
-					}),
-					z.null(),
-				]),
-			),
+			tags: z.array(z.string()),
 			created_at: z.string(),
 		}),
 	),
