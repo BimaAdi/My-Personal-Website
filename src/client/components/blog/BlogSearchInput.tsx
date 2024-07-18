@@ -19,6 +19,9 @@ const BlogSearchInput = ({ search }: { search: string | null }) => {
 		if (searchForm.value.trim() !== "") {
 			router.push(`/blog?search=${searchForm.value.trim()}`);
 			router.refresh();
+		} else {
+			router.push("/blog");
+			router.refresh();
 		}
 	};
 

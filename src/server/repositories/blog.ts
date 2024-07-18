@@ -1,10 +1,6 @@
 import fs from "fs";
-import {
-	BlogJsonType,
-	BlogDetailJsonType,
-	BlogJsonSchema,
-} from "@/server/types/blog";
-import { DEFAULT_JSON_PATH } from "@/shared/constants";
+import { BlogJsonSchema } from "@/server/schemas/blog";
+import { DEFAULT_JSON_PATH } from "@/constants";
 import { BlogStringType } from "../db/types";
 
 export const paginateBlog = ({
@@ -51,32 +47,4 @@ export const paginateBlog = ({
 		num_data: num_blog,
 		num_page: Math.ceil(num_blog / page_size),
 	};
-};
-
-export const getDetailBlog = ({
-	blogs,
-	id,
-}: {
-	blogs: BlogJsonType;
-	id: string;
-}): BlogDetailJsonType | null => {
-	let selected_blog = blogs.filter((x) => x.id === id);
-	if (selected_blog.length == 0) {
-		return null;
-	}
-	return selected_blog[0];
-};
-
-export const getDetailBlogByLink = ({
-	blogs,
-	link,
-}: {
-	blogs: BlogJsonType;
-	link: string;
-}): BlogDetailJsonType | null => {
-	let selected_blog = blogs.filter((x) => x.link === link);
-	if (selected_blog.length == 0) {
-		return null;
-	}
-	return selected_blog[0];
 };

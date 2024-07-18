@@ -20,11 +20,11 @@ const Navbar = () => {
 							Home
 						</Link>
 					</li>
-					<li className="ml-5">
+					{/* <li className="ml-5">
 						<Link href="/project" className="text-white hover:text-gray">
 							Project
 						</Link>
-					</li>
+					</li> */}
 					<li className="ml-5">
 						<Link href="/blog" className="text-white hover:text-gray">
 							Blog
