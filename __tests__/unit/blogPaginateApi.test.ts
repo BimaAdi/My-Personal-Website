@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from "vitest";
 import { createMocks } from "node-mocks-http";
 import { GET as getPaginateBlogApi } from "@/app/api/blog/route";
-import { WORKDIR, DEFAULT_JSON_PATH } from "@/shared/constants";
+import { WORKDIR, DEFAULT_JSON_PATH } from "@/constants";
 
 describe("/api/blog", () => {
   beforeAll(async () => {

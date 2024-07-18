@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from "vitest";
 import { createMocks } from "node-mocks-http";
 import { GET as getDetailBlogByLinkApi } from "@/app/api/blog/link/[id]/route";
-import { DEFAULT_JSON_PATH, DEFAULT_MD_PATH, WORKDIR } from "@/shared/constants";
+import { DEFAULT_JSON_PATH, DEFAULT_MD_PATH, WORKDIR } from "@/constants";
 
 describe("/api/blog/link/[id]", () => {
   beforeAll(async () => {

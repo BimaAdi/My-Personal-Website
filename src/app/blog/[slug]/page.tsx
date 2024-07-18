@@ -3,7 +3,6 @@ import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Code from "@/client/components/blog/mdx/code";
-import Main from "@/client/layouts/Main";
 import styles from "@/client/components/blog/blog.module.css";
 
 // Copy From https://github.com/owolfdev/simple-mdx-blog
@@ -52,15 +51,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
 	};
 
 	return (
-		<Main>
-			<div className="py-4 sm:py-6 max-w-3xl mx-auto px-4">
-				<article className="prose prose-sm md:prose-base lg:prose-lg mx-auto text-white">
-					<h1 className="text-white">{props.frontMatter.title}</h1>
-					<div className={styles.blog}>
-						<MDXRemote source={props.content} components={components} />
-					</div>
-				</article>
-			</div>
-		</Main>
+		<div className="py-4 sm:py-6 max-w-3xl mx-auto px-4">
+			<article className="prose prose-sm md:prose-base lg:prose-lg mx-auto text-white">
+				<h1 className="text-white">{props.frontMatter.title}</h1>
+				<div className={styles.blog}>
+					<MDXRemote source={props.content} components={components} />
+				</div>
+			</article>
+		</div>
 	);
 }
