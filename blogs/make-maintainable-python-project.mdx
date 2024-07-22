@@ -1,0 +1,66 @@
+---
+title: "Make Maintainable Python Project"
+date: "2024-06-02"
+description: "How to create maintainable python project"
+tags: "#Python"
+---
+Imagine you have personal python project several months ago. You try to re run it on your pc but it not work. You face some error like missing depedencies, incompatible python version etc. It take a day to solve that issue. Imagine if this in your day job. Your python project must work on production server and your
+college pc as well. Facing this issue over and over is not productive.
+
+In this blog I will show you how to eleminate this problem to make your python project maintainable. Using some common python project best practice.
+
+## Define your python version
+Every python depedencies has diffrent python version requirement. For example python 2.7 (who still use python 2.7 in 2024??) it can only work with django version 1.8. Fastapi need minimum python 3.5 because feature typehint first introduce on python 3.5. 
+
+Where should I define python version? personally I put it on README.md. I create section called requirement then I put it on their. You can see on this github repo [https://github.com/BimaAdi/Make-Maintainable-Python-Project](https://github.com/BimaAdi/Make-Maintainable-Python-Project).
+
+## Using virtual environtment
+By default when using pip if you do `pip install {some package}` it will store globaly and will be available to all your project.The problem is not all your project use that all depedencies. For example you have multiple project one about machine learning and other about backend development.Machine learning project use some machine learning related package such as numpy, pandas, scikit learn etc while backend project use some backend related packagesuch as Django. Your machine learning project doesn't need django and neither your backend project doesn't need numpy nor scikit learn. By using virtual environtment you
+encapsulated depedencies for every project. 
+
+To create virtual environtment on your project folder run command:
+
+
+```
+python -m venv env
+``` 
+On your project folder you will see an env folder. This folder will store your python intepreter and python depedencies. To use your newly created environtment you can use command:
+
+
+linux and macos (bash or zsh)
+```
+source env/bin/activate
+```
+windows (command promt)
+```
+env\Scripts\activate.bat
+```
+windows (powershell)
+```
+env\Scripts\activate.ps1
+```
+
+After run that command you notice that your terminal/command promt/powershell have (env) on the left side. 
+![terminal on activated virtual environtment](/img/make-maintainable-python-project/terminal%20active%20virtual%20environtment.png)
+
+This mark that you no longer use your global python intepreter, but you use python intepreter on your env folder. If you perform `pip list` you also notice that you don't have any package depedencies. 
+![pip list virtual environtment](/img/make-maintainable-python-project/virtual%20environtmend%20pip%20list.png)
+
+When you perform `pip install {some package}` while you have (env) you will store it on your env folder. Try `pip install Faker pandas` then `pip list` you will see that it installed on your env folder. 
+![install depedencies on virtual environtment](/img/make-maintainable-python-project/install%20depedencies%20on%20virtual%20environtment.png)
+
+To use my global python intepreter back. You can create new terminal/command promt/powershell or you deactivate the environtment using command `deactivate`. Don't push env folder to git repository. Make sure to add env folder to your .gitignore.
+
+## Note your project depedencies using requirements.txt
+When your project grow larger you need more depedencies. Install all depedencies manualy is not efective. You also need to define what version your python depedencies need. To solve that problem we can use requirements.txt. requirements.txt it just a txt file that store your python depedencies.
+To generate that file on terminal while you using virtual environtment run command `pip freeze > requirements.txt`. `pip freeze` will print all depedencies and it's version in your virtual environtment on terminal while `> requirements.txt` to put output on requirements.txt. 
+![pip freeze virtual environtment](/img/make-maintainable-python-project/pip%20freeze%20on%20virtual%20environtment.png)
+
+After you run that file you notice new file requirements.txt. To reinstall python depedencies you just need run command `pip install -r requirements.txt`. Make sure whenever you add new depedencies to your
+project update your requirements.txt using `pip freeze > requirements.txt`.
+
+
+To make it more clear I have some code example that generate fake user data then stored in csv that use all these tips. You can see it from this github repo 
+[https://github.com/BimaAdi/Make-Maintainable-Python-Project](https://github.com/BimaAdi/Make-Maintainable-Python-Project)
+
+That's all guys there are still more tips to make maintainable python project such as project structure, using testing, formater, etc, But I want to scope it just to python specific project and as minimal as possible. If you have more tips or you have diffrent opinion you can add it on comment section below. Cheers.

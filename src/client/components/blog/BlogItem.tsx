@@ -31,7 +31,7 @@ const BlogItem = ({ title, link, tags, created_at }: Props) => {
 			<div className="flex w-full justify-between items-center pt-1 pb-2">
 				<p className="px-8 text-xs">{tags.map((x) => `#${x}`).join(" ")}</p>
 				<p className="px-8 text-xs">
-					{created_at.getDay()} {monthNames[created_at.getMonth()]}{" "}
+					{created_at.getDate()} {monthNames[created_at.getMonth()]}{" "}
 					{created_at.getFullYear()}
 				</p>
 			</div>
