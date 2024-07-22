@@ -1,0 +1,69 @@
+---
+title: "Membuat Project Python yang mudah untuk dimaintain"
+date: "2024-06-02"
+description: "Bagaimana cara membuat project python yang mudah untuk di maintain"
+tags: "#Python #Bahasa Indonesia"
+---
+Bayangkan kamu memiliki project python pribadi di github kamu yang sudah tidak kamu buka selama berbulan-bulan. Ketika dicoba di laptop kamu ternyata tidak jalan entah karena kurang depedencies atau versi python kamu tidak cocok dan lain-lain. Seharian kamu berusaha menyelesaikan masalah tersebut dan akhirnya project tersebut bisa berjalan dilaptop kamu. Sekarang bayangkan jika hal tersebut terjadi di kantormu. Program itu selain harus bisa jalan di laptop kamu tetapi harus bisa jalan juga di server dan laptop teman kerja. Menyelesaikan masalah ini berulang-ulang itu tidak produktif.
+
+Pada blog ini saya akan memberikan tips dan trik untuk membuat project python kalian lebih mudah dimaintain. Menggunakan best practice di python.
+
+## Definisikan versi python yang diggunakan
+Setiap depedencies python memiliki minimum versi python tersendiri. Contohnya Django 1.8 cuma bisa diggunakan oleh python 2.7 (Siapa yang masih pake python 2.7 di 2024??). Untuk menggunakan fastapi minimum versinya adalah python 3.5 karena fitur typehint pertama kali dikenalkan di pyhton 3.5.
+
+Dimana saya harus mendefinisikan versi python yang diggunakan? Saya pribadi mendifinisikan versi python di README.md. Saya membuat satu bagian yang berjudul requirement lalu mendefinisikanya di bagian tersebut. Contohnya bisa kalian lihat di repository github berikut [https://github.com/BimaAdi/Make-Maintainable-Python-Project](https://github.com/BimaAdi/Make-Maintainable-Python-Project).
+
+## Menggunakan Virtual Environtment
+Secara default ketika menggunakan pip ketika kita melakukan `pip install {nama package}` pip akan menyimpan depedency secara global jadi bisa diakses oleh semua project di laptop kita. Masalahnya adalah tidak semua project menggunakan depedency tersebut. Contohnya kamu memiliki 2 project satu project mengenai machine learning satu lagi project mengenai backend development. Project machine learning menggunakan depedency yang berhubungan dengan machine learning seperti numpy, pandas, scikit learn dan lain-lain, Sedangkan project backend development menggunakan web framework seperti django. Project machine learning tidak membutuhkan django begitu pula project backend development tidak membutuhkan numpy, pandas maupun scikit learn. Dengan menggunakan virtual environtment kita mengelompokan depedencies berdasarkan kebutuhan project-project kita.
+
+Untuk membuat virtual environtment pada folder project jalankan perintah:
+```
+python -m venv env
+```
+
+Pada folder project kalian akan melihat satu folder baru yang namanya env/. Folder ini menyimpan python intepreter dan depedencie python. Untuk menggunakan python pada folder env jalankan perintah:
+
+linux dan macos (bash or zsh)
+```
+source env/bin/activate
+```
+windows (command promt)
+```
+env\Scripts\activate.bat
+```
+windows (powershell)
+```
+env\Scripts\activate.ps1
+```
+
+Setelah menjalankan perintah diatas pada tampilan kiri terminal/command promt/powershell terdapat icon (env). 
+
+![terminal on activated virtual environtment](/img/make-maintainable-python-project/terminal%20active%20virtual%20environtment.png)
+
+Ini menandakan python yang diggunakan adalah python yang terdapat pada folder env (virtual environtmet) bukan python yang terinstalasi secara global. Kalau kalian coba jalankan perintah `pip list` tidak ada depedency apa pun kecuali bawaan python kalian. 
+
+![pip list virtual environtment](/img/make-maintainable-python-project/virtual%20environtmend%20pip%20list.png)
+
+
+Kalau kalian jalankan `pip install {nama depedency}` ketika terdapa icon (env) maka depedency tersebut akan disimpan di folder env. Coba lakukan `pip install Faker pandas` lalu `pip list` depedencies akan tersimpan di folder env.
+
+![install depedencies on virtual environtment](/img/make-maintainable-python-project/install%20depedencies%20on%20virtual%20environtment.png)
+
+Untuk menggunakan python intepreter global bisa dengan 2 cara. Cara yang pertama dengan membukan terminal/command promt/powershell baru. Cara kedua dengan mematikan environtmentnya menggunakan perintah `deactivate`.
+
+
+Pastikan folder env tidak masuk ke git repository jika menggunakan git. tambahkan folder env pada file .gitignore.
+
+## Catat depedency project pada file requirements.txt
+Semakin besar suatu project semakin banyak depedency yang dibutuhkan. Mengintall depedency satu per satu pasti akan memakan banyak waktu. Selain itu kita juga harus mendefinisikan versi depedency apa yang digunkan. Untuk menyelesaikan masalah tersebut bisa menggunakan requirements.txt. requirements.txt itu hanya file txt biasa yang menyimpan depedency python dan versi yang diggunakan.
+
+Untuk membuat file requirements.txt ketika dalam kondisi menjalankan virtual environtment jalankan perintah `pip freeze > requirements.txt`. Perintah `pip freeze` menampilkan semua depedencies dan versinya pada virtual environtment. Perintah `> requirements.txt` untuk menyimpan hasilnya pada file requirements.txt. 
+![pip freeze virtual environtment](/img/make-maintainable-python-project/pip%20freeze%20on%20virtual%20environtment.png)
+
+Setelah menjalankan perintah akan muncul file requirements.txt. Jadi untuk menginstall kembali semua depedency di project cukup dengan menggunakan perintah `pip install -r requirements.txt`. Pastikan juga setiap menambah depedency baru pada project perbarui juga requirements.txt menggunakan perintah `pip freeze > requirements.txt`.
+
+
+Agar lebih jelas. Saya memiliki contoh project yang menggunakan semua tips diatas. Kalian bisa melihatnya di repository github [https://github.com/BimaAdi/Make-Maintainable-Python-Project](https://github.com/BimaAdi/Make-Maintainable-Python-Project)
+
+
+Sebenarnya masih banyak tips lain untuk memmpermudah memaintain project python seperti menggunakan testing, formater dan lain-lain. Namun pada blog ini saya ingin specific hanya di python dan seminimal mungkin. Jika kalian memiliki tips lain atau solusi lain silahkan ditambah di kolom komentar.

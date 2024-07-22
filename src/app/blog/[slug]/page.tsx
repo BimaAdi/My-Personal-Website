@@ -54,6 +54,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
 		<div className="py-4 sm:py-6 max-w-3xl mx-auto px-4">
 			<article className="prose prose-sm md:prose-base lg:prose-lg mx-auto text-white">
 				<h1 className="text-white">{props.frontMatter.title}</h1>
+				<div className="flex justify-between">
+					<p className="text-white">Created: {props.frontMatter.date}</p>
+					<p className="text-white">{props.frontMatter.tags}</p>
+				</div>
 				<div className={styles.blog}>
 					<MDXRemote source={props.content} components={components} />
 				</div>
